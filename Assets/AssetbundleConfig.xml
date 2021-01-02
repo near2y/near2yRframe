@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetBundleConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ABList>
+    <ABBase Path="Assets/GameData/Data/ABData/AssetBundleConfig.bytes" Crc="588278462" ABName="assetbundleconfig" AssetName_x0020_="AssetBundleConfig.bytes">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Prefabs/Attack.prefab" Crc="1330568117" ABName="attack" AssetName_x0020_="Attack.prefab">
+      <ABDependce>
+        <string>shader</string>
+      </ABDependce>
+    </ABBase>
+    <ABBase Path="Assets/GameData/Prefabs/GameStart.prefab" Crc="114936917" ABName="gamestart" AssetName_x0020_="GameStart.prefab">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Prefabs/UGUI/Panel/MenuPanel.prefab" Crc="3283179713" ABName="menupanel" AssetName_x0020_="MenuPanel.prefab">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Shaders/benghuai.shader" Crc="1145813025" ABName="shader" AssetName_x0020_="benghuai.shader">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Shaders/cloud.shader" Crc="3667901905" ABName="shader" AssetName_x0020_="cloud.shader">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Shaders/Skybox.shader" Crc="1986987949" ABName="shader" AssetName_x0020_="Skybox.shader">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Shaders/Water.shader" Crc="1357101244" ABName="shader" AssetName_x0020_="Water.shader">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Shaders/Xray.shader" Crc="1043595403" ABName="shader" AssetName_x0020_="Xray.shader">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Sounds/menusound.mp3" Crc="2729331572" ABName="sound" AssetName_x0020_="menusound.mp3">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Sounds/senlin.mp3" Crc="3022988390" ABName="sound" AssetName_x0020_="senlin.mp3">
+      <ABDependce />
+    </ABBase>
+  </ABList>
+</AssetBundleConfig>

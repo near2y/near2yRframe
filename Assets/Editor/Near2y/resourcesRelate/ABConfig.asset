@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae6a3aebbd3f0e439d07fcb6707d8fa, type: 3}
+  m_Name: ABConfig
+  m_EditorClassIdentifier: 
+  allPrefabPath:
+  - Assets/GameData/Prefabs
+  allFileDirAB:
+  - ABName: shader
+    ABPath: Assets/GameData/Shaders
+  - ABName: sound
+    ABPath: Assets/GameData/Sounds
+  - ABName: assetbundleconfig
+    ABPath: Assets/GameData/Data/ABData
