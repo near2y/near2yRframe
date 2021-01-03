@@ -38,13 +38,17 @@ public class GameStart : MonoBehaviour
 
         string path = "Assets/GameData/Sounds/menusound.mp3";
         //ResourceManager.Instance.AsyncLoadResource(path, OnloadFinish, LoadResPriority.RES_MIDDLE);
-        ResourceManager.Instance.PreloadRes(path);
 
+        //ResourceManager.Instance.PreloadRes(path);
+        AudioClip clip =  ResourceManager.Instance.LoadResource<AudioClip>(path);
+        ResourceManager.Instance.ReleaseResource(clip);
 
-
+        ObjectManager.Instance.PreLoadGameObject("Assets/GameData/Prefabs/Attack.prefab", 5);
         GameObject obj = ObjectManager.Instance.InstantiateObject("Assets/GameData/Prefabs/Attack.prefab", true);
-        ObjectManager.Instance.ReleaseObject(obj);
-        obj = null;
+
+        //GameObject obj = ObjectManager.Instance.InstantiateObject("Assets/GameData/Prefabs/Attack.prefab", true,false);
+        //ObjectManager.Instance.ReleaseObject(obj);
+        //obj = null;
 
         GameMapManager.Instance.LoadScene(GameConfig.SCENENAME_MENUSCENE);
 

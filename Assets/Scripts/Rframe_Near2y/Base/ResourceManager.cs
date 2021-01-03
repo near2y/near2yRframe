@@ -475,10 +475,10 @@ public class ResourceManager :Singletor<ResourceManager>
         ObjectManager.Instance.ClearPoolObject(item.m_Crc);
         if (item.m_Obj != null)
         {
+            item.m_Obj = null;
 #if UNITY_EDITOR
             Resources.UnloadUnusedAssets();
 #endif
-            item.m_Obj = null;
         }
     }
 
