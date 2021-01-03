@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class ResourceManager :Singletor<ResourceManager>
 {
-    public bool m_LoadFromAssetBundle = false;
+    public bool m_LoadFromAssetBundle = true;
 
 
     protected long m_Guid = 0;

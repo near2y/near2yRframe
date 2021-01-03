@@ -40,7 +40,14 @@ public class GameStart : MonoBehaviour
         //ResourceManager.Instance.AsyncLoadResource(path, OnloadFinish, LoadResPriority.RES_MIDDLE);
         ResourceManager.Instance.PreloadRes(path);
 
+
+
+        GameObject obj = ObjectManager.Instance.InstantiateObject("Assets/GameData/Prefabs/Attack.prefab", true);
+        ObjectManager.Instance.ReleaseObject(obj);
+        obj = null;
+
         GameMapManager.Instance.LoadScene(GameConfig.SCENENAME_MENUSCENE);
+
 
     }
 

@@ -59,6 +59,7 @@ public class ObjectManager :Singletor<ObjectManager>
                     m_ResourceObjDic.Remove(resObj.m_CloneObj.GetInstanceID());
                     resObj.Reset();
                     m_ResourceObjClassPool.Recycle(resObj);
+                    st.Remove(resObj);
                 }
             }
             if (st.Count <= 0)
