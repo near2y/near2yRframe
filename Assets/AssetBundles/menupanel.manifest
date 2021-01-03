@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 3482555683
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8de540c47cc2abc9b376266249753a65
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 405e1263449221401217615e9122585e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 04b9b92ddde969a42be7e396aa6a6d38, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ebd8fd6e6caa757498c80d889d0c1b87, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/GameData/Prefabs/UGUI/Panel/MenuPanel.prefab
+Dependencies: []

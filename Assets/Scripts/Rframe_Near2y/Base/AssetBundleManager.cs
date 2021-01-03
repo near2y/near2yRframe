@@ -13,7 +13,6 @@ public class AssetBundleManager : Singletor<AssetBundleManager>
     //AssetBundleItem类对象池
     protected ClassObjectPool<AssetBundleItem> m_AssetBundleItemPool = ObjectManager.Instance.GetOrCreateClassPool<AssetBundleItem>(500);
 
-    const string m_AssetBasePath = "Assets/AssetBundles/";
     /// <summary>
     /// 加载AB配置表
     /// </summary>
@@ -22,7 +21,7 @@ public class AssetBundleManager : Singletor<AssetBundleManager>
     {
         m_ResourceItemDic.Clear();
         m_AssetBundleItemDic.Clear();
-        string configPath = "Assets/AssetBundles/assetbundleconfig";
+        string configPath = GameConfig.ABCONFIGPATH;
         AssetBundle configAB = AssetBundle.LoadFromFile(configPath);
         TextAsset textAsset = configAB.LoadAsset<TextAsset>("AssetbundleConfig");
         if (textAsset == null)
@@ -98,7 +97,7 @@ public class AssetBundleManager : Singletor<AssetBundleManager>
         if(!m_AssetBundleItemDic.TryGetValue(crc,out item))
         {
             AssetBundle assetBundle = null;
-            string fullPath = m_AssetBasePath + name;
+            string fullPath = GameConfig.ABPATH + name;
             if (File.Exists(fullPath))
             {
                 assetBundle = AssetBundle.LoadFromFile(fullPath);

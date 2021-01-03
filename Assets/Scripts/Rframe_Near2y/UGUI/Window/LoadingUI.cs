@@ -30,6 +30,13 @@ public class LoadingUI : Window
     /// </summary>
     public void LoadOtherScene()
     {
-
+        switch (m_SceneName)
+        {
+            case GameConfig.SCENENAME_MENUSCENE:
+                UIManager.Instance.PopUpWindow(GameConfig.UIPATH_MENU);
+                break;
+        
+        }
+        UIManager.Instance.CloseWindow(GameConfig.UIPATH_LOAD);
     }
 }

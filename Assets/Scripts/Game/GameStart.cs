@@ -35,30 +35,31 @@ public class GameStart : MonoBehaviour
 
     private void Start()
     {
-        UIManager.Instance.PopUpWindow("MenuPanel.prefab");
 
         string path = "Assets/GameData/Sounds/menusound.mp3";
         //ResourceManager.Instance.AsyncLoadResource(path, OnloadFinish, LoadResPriority.RES_MIDDLE);
         ResourceManager.Instance.PreloadRes(path);
 
+        GameMapManager.Instance.LoadScene(GameConfig.SCENENAME_MENUSCENE);
+
+    }
+
+    private void Update()
+    {
+        UIManager.Instance.OnUpdate();
     }
 
     private void RegisterUI()
     {
-        UIManager.Instance.Register<MenuUI>(UIName.Menu);
-        UIManager.Instance.Register<GameUI>(UIName.Game);
-        UIManager.Instance.Register<LoadingUI>(UIName.Loading);
+        UIManager.Instance.Register<MenuUI>(GameConfig.UIPATH_MENU);
+        UIManager.Instance.Register<GameUI>(GameConfig.UIPATH_GAME);
+        UIManager.Instance.Register<LoadingUI>(GameConfig.UIPATH_LOAD);
     }
 
 
 }
 
-public class UIName :Singletor<UIName>
-{
-    public const string Menu = "MenuPanel.prefab";
-    public const string Game = "GamePanel.prefab";
-    public const string Loading = "LoadingPanel.prefab";
-}
+
 
 public class Enemy 
 {

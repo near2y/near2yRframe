@@ -9,7 +9,13 @@
         <string>shader</string>
       </ABDependce>
     </ABBase>
+    <ABBase Path="Assets/GameData/Prefabs/UGUI/Panel/GamePanel.prefab" Crc="3792564954" ABName="gamepanel" AssetName_x0020_="GamePanel.prefab">
+      <ABDependce />
+    </ABBase>
     <ABBase Path="Assets/GameData/Prefabs/GameStart.prefab" Crc="114936917" ABName="gamestart" AssetName_x0020_="GameStart.prefab">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Prefabs/UGUI/Panel/LoadingPanel.prefab" Crc="2273451330" ABName="loadingpanel" AssetName_x0020_="LoadingPanel.prefab">
       <ABDependce />
     </ABBase>
     <ABBase Path="Assets/GameData/Prefabs/UGUI/Panel/MenuPanel.prefab" Crc="3283179713" ABName="menupanel" AssetName_x0020_="MenuPanel.prefab">

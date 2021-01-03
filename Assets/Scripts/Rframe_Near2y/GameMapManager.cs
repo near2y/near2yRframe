@@ -46,10 +46,18 @@ public class GameMapManager : Singletor<GameMapManager>
     /// 加载场景
     /// </summary>
     /// <param name="name">场景名</param>
-    public void LoadScene(string name)
+    public void LoadScene(string name,int index = 1)
     {
         LoadingProgress = 0;
         m_Mono.StartCoroutine(LoadSceneAsync(name));
+
+        //Loading 界面之一
+        switch (index)
+        {
+            case 1:
+                UIManager.Instance.PopUpWindow(GameConfig.UIPATH_LOAD, true, name);
+                break;
+        }
     }
 
     /// <summary>
@@ -71,7 +79,7 @@ public class GameMapManager : Singletor<GameMapManager>
         }
         ClearCache();
         AlreadyLoadScene = false;
-        AsyncOperation unloadScene = SceneManager.LoadSceneAsync("Empty", LoadSceneMode.Single);
+        AsyncOperation unloadScene = SceneManager.LoadSceneAsync(GameConfig.SCENENAME_EMPTY, LoadSceneMode.Single);
         while(!AsyncOperation.ReferenceEquals(unloadScene,null) && !unloadScene.isDone)
         {
             yield return new WaitForEndOfFrame();
@@ -89,12 +97,14 @@ public class GameMapManager : Singletor<GameMapManager>
                 //smooth
                 while (LoadingProgress < targetProgress)
                 {
+                    Debug.Log("near2y " + LoadingProgress);
                     ++LoadingProgress;
                     yield return new WaitForEndOfFrame();
                 }
             }
             CurrentMapName = name;
             SetSceneSetting(name);
+            targetProgress = 100;
             while (LoadingProgress <targetProgress - 2)
             {
                 ++LoadingProgress;

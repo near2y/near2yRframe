@@ -15,6 +15,6 @@ public class GameUI : Window
     private void ClickOverBtn()
     {
         UIManager.Instance.CloseWindow(Name);
-        UIManager.Instance.PopUpWindow(UIName.Menu);
+        UIManager.Instance.PopUpWindow(GameConfig.UIPATH_MENU);
     }
 }
