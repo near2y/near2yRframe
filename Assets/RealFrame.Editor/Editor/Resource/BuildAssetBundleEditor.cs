@@ -148,7 +148,15 @@ public class BuildAssetBundleEditor
         {
             Directory.CreateDirectory(assetBundleDirectory);
         }
-        BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.StandaloneWindows);
+        AssetBundleManifest manifest = BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.StandaloneWindows);
+        if(manifest == null)
+        {
+            Debug.LogError("AssetBundle打包失败！");
+        }
+        else
+        {
+            Debug.Log("AssetBundle打包完毕！");
+        }
     }
 
     /// <summary>

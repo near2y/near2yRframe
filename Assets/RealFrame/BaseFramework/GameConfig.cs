@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class GameConfig
 {
@@ -17,7 +18,8 @@ public class GameConfig
     /// <summary>
     /// AB打包路径
     /// </summary>
-    public const string ABPATH = "Assets/AssetBundles/";
+    //public const string ABPATH = "Assets/AssetBundles/";
+    public static string ABPATH = Application.dataPath + "/../AssetBundle/" + EditorUserBuildSettings.activeBuildTarget.ToString()+"/";
     /// <summary>
     /// AB打包配置表存放路径
     /// </summary>
