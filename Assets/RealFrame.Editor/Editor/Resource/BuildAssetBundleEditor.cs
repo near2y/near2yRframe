@@ -200,8 +200,8 @@ public class BuildAssetBundleEditor
             ab.Path = "";
         }
         //string binaryPath = BUNDLETARGETPATH + "/AssetbundleConfig.bytes";
-        string binaryPath = "Assets/GameData/Data/ABData/AssetBundleConfig.bytes";
-        WriteReadData.CreateBinary<AssetBundleConfig>(binaryPath,assetBundleConfig);
+        //string binaryPath = "Assets/GameData/Data/ABData/AssetBundleConfig.bytes";
+        WriteReadData.CreateBinary<AssetBundleConfig>(GameConfig.ABBINARYPATH,assetBundleConfig);
     }
 
     /// <summary>
@@ -216,13 +216,14 @@ public class BuildAssetBundleEditor
         FileInfo[] files = directoryInfo.GetFiles("*", SearchOption.AllDirectories);
         for(int i = 0; i < files.Length; i++)
         {
-            if (ContainABName(files[i].Name, allBundlesName))
+            if (ContainABName(files[i].Name, allBundlesName) || files[i].Name.EndsWith(".meta") 
+                || files[i].Name.EndsWith(".manifest"))
             {
                 continue;
             }
             else
             {
-                Debug.Log("此AB包已经删除或者更名");
+                Debug.Log("此AB包已经删除或者更名"+files[i].Name);
                 if (File.Exists(files[i].FullName))
                 {
                     File.Delete(files[i].FullName);

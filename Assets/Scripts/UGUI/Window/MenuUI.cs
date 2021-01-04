@@ -12,7 +12,47 @@ public class MenuUI : Window
         m_MainPanel = GameObject.GetComponent<MenuPanel>();
         AddBtnClickListener(m_MainPanel.m_StartBtn, OnClickStart);
         AddBtnClickListener(m_MainPanel.m_BgmBtn, OnClickBGM);
+
+        //Test
+        ResourceManager.Instance.AsyncLoadResource("Assets/GameData/Texture/yixiangziqian.min.png",
+            OnLoadSpriteTest1, LoadResPriority.RES_SLOW, true);
+        ResourceManager.Instance.AsyncLoadResource("Assets/GameData/Texture/zuanshi4.min.png",
+            OnLoadSpriteTest2, LoadResPriority.RES_HIGHT, true);
+        ResourceManager.Instance.AsyncLoadResource("Assets/GameData/Texture/yidaiqian.min.png",
+            OnLoadSpriteTest3, LoadResPriority.RES_HIGHT, true);
     }
+
+    protected void OnLoadSpriteTest1(string path, Object obj, object param1 = null, object param2 = null, object param3 = null)
+    {
+        if (!Object.ReferenceEquals(obj, null))
+        {
+            Sprite sp = obj as Sprite;
+            m_MainPanel.m_Test1.sprite = sp;
+            Debug.Log("图片1加载出来了");
+        }
+    }
+
+    protected void OnLoadSpriteTest2(string path, Object obj, object param1 = null, object param2 = null, object param3 = null)
+    {
+        if (!Object.ReferenceEquals(obj, null))
+        {
+            Sprite sp = obj as Sprite;
+            m_MainPanel.m_Test3.sprite = sp;
+            Debug.Log("图片2加载出来了");
+        }
+    }
+
+    protected void OnLoadSpriteTest3(string path, Object obj, object param1 = null, object param2 = null, object param3 = null)
+    {
+        if (!Object.ReferenceEquals(obj, null))
+        {
+            Sprite sp = obj as Sprite;
+            m_MainPanel.m_Test2.sprite = sp;
+            Debug.Log("图片3加载出来了");
+        }
+    }
+
+
 
     void OnClickStart()
     {

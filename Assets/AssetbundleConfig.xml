@@ -42,5 +42,14 @@
     <ABBase Path="Assets/GameData/Sounds/senlin.mp3" Crc="3022988390" ABName="sound" AssetName_x0020_="senlin.mp3">
       <ABDependce />
     </ABBase>
+    <ABBase Path="Assets/GameData/Texture/yidaiqian.min.png" Crc="307432506" ABName="texture" AssetName_x0020_="yidaiqian.min.png">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Texture/yixiangziqian.min.png" Crc="3735922189" ABName="texture" AssetName_x0020_="yixiangziqian.min.png">
+      <ABDependce />
+    </ABBase>
+    <ABBase Path="Assets/GameData/Texture/zuanshi4.min.png" Crc="1030958906" ABName="texture" AssetName_x0020_="zuanshi4.min.png">
+      <ABDependce />
+    </ABBase>
   </ABList>
 </AssetBundleConfig>

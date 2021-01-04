@@ -1,16 +1,18 @@
 ManifestFileVersion: 0
-CRC: 3555855295
+CRC: 266961363
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 869291430b9084f559edd5a3e73ae262
+    Hash: 57dc294103c6dd424771d3300136d889
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+    Hash: 27295f96fcdc2b917bd061e8817c7e02
 HashAppended: 0
 ClassTypes:
-- Class: 49
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
   Script: {instanceID: 0}
 Assets:
-- Assets/GameData/Data/ABData/AssetBundleConfig.bytes
+- Assets/GameData/Prefabs/Test1.prefab
 Dependencies: []

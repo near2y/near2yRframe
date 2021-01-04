@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class ResourceManager :Singletor<ResourceManager>
 {
-    public bool m_LoadFromAssetBundle = true;
+    public bool m_LoadFromAssetBundle = false;
 
 
     protected long m_Guid = 0;
@@ -533,7 +533,8 @@ public class ResourceManager :Singletor<ResourceManager>
     /// <summary>
     /// 异步加载资源，仅仅是不需要实例化的资源，例如音频，图片等等
     /// </summary>
-    public void AsyncLoadResource(string path, OnAsyncObjFinish dealFinish, LoadResPriority resPriority, uint crc = 0, object param1 = null, object param2 = null, object param3= null)
+    public void AsyncLoadResource(string path, OnAsyncObjFinish dealFinish, LoadResPriority resPriority, 
+        bool isSprite = false, uint crc = 0, object param1 = null, object param2 = null, object param3= null)
     {
         if (crc == 0)
         {
@@ -556,6 +557,7 @@ public class ResourceManager :Singletor<ResourceManager>
             para.m_Crc = crc;
             para.m_Path = path;
             para.m_Priority = resPriority;
+            para.m_Sprite = isSprite;
             m_LoadingAssetDic.Add(crc, para);
             m_LoadingAssetList[(int)resPriority].Add(para);
         }
@@ -616,6 +618,13 @@ public class ResourceManager :Singletor<ResourceManager>
             //上一次yield的时间
             for  (int i = 0; i < (int)LoadResPriority.RES_NUM; i++)
             {
+                if (m_LoadingAssetList[(int)LoadResPriority.RES_HIGHT].Count > 0)
+                {
+                    i = (int)LoadResPriority.RES_HIGHT;
+                }else if(m_LoadingAssetList[(int)LoadResPriority.RES_MIDDLE].Count > 0)
+                {
+                    i = (int)LoadResPriority.RES_MIDDLE;
+                }
                 List<AsyncLoadResParam> loadingList = m_LoadingAssetList[i];
                 if (loadingList.Count <= 0)
                     continue;
@@ -628,8 +637,16 @@ public class ResourceManager :Singletor<ResourceManager>
 #if UNITY_EDITOR
                 if (!m_LoadFromAssetBundle)
                 {
-                    obj = LoadAssetByEditor<Object>(loadingItem.m_Path);
+                    if (loadingItem.m_Sprite)
+                    {
+                        obj = LoadAssetByEditor<Sprite>(loadingItem.m_Path);
+                    }
+                    else
+                    {
+                        obj = LoadAssetByEditor<Object>(loadingItem.m_Path);
+                    }
                     //模拟异步加载
+                    //只在编辑器下模拟方便查看问题
                     yield return new WaitForSeconds(0.5f);
                     item = AssetBundleManager.Instance.FindResourceItem(loadingItem.m_Crc);
                 }

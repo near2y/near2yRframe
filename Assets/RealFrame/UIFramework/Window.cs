@@ -89,7 +89,7 @@ public class Window
     {
         if (Image.ReferenceEquals(img, null))
             return;
-        ResourceManager.Instance.AsyncLoadResource(path, OnloadSpriteFinish, LoadResPriority.RES_MIDDLE, 0,img, setNativeSize);
+        ResourceManager.Instance.AsyncLoadResource(path, OnloadSpriteFinish, LoadResPriority.RES_MIDDLE,true, 0,img, setNativeSize);
     }
 
     /// <summary>

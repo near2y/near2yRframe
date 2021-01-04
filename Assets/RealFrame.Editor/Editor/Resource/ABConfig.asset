@@ -21,3 +21,5 @@ MonoBehaviour:
     ABPath: Assets/GameData/Sounds
   - ABName: assetbundleconfig
     ABPath: Assets/GameData/Data/ABData
+  - ABName: texture
+    ABPath: Assets/GameData/Texture

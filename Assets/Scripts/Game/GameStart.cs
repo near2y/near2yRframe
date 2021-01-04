@@ -45,6 +45,8 @@ public class GameStart : MonoSingletor<GameStart>
         //ObjectManager.Instance.ReleaseObject(obj);
         //obj = null;
 
+        //ObjectManager.Instance.InstantiateObject("Assets/GameData/Prefabs/Test1.prefab");
+
         GameMapManager.Instance.LoadScene(GameConfig.SCENENAME_MENUSCENE);
 
 

@@ -26,9 +26,11 @@ public class GameConfig
     /// ABConfig.asset路径
     /// 配置了所有需要打包文件的位置
     /// </summary>
-    public static readonly string ABCONFIGASSETPATH = "Assets/RealFrame.Editor/Editor/Resource/ABConfig.asset";
-
-
+    public const string ABCONFIGASSETPATH = "Assets/RealFrame.Editor/Editor/Resource/ABConfig.asset";
+    /// <summary>
+    /// ABConfig二进制文件存放路径
+    /// </summary>
+    public const string ABBINARYPATH= "Assets/GameData/Data/ABData/AssetBundleConfig.bytes";
 
     //--------------------------------  UI  -------------------------------------
     public const string UIPATH_MENU = "MenuPanel.prefab";
