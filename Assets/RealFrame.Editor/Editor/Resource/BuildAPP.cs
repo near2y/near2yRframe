@@ -13,9 +13,12 @@ public class BuildAPP
     public static string m_IOSPath = Application.dataPath + "/../BuildTarget/IOS/";
     public static string m_WindowsPath = Application.dataPath + "/../BuildTarget/Windows/";
 
-
+    [MenuItem("Build/标准包")]
     public static void Build()
     {
+        //打ab包
+        BuildAssetBundleEditor.BuildAllAssetBundles();
+        //生成可执行程序
         string abPath = Application.dataPath + "/../AssetBundle/" + EditorUserBuildSettings.activeBuildTarget.ToString() + "/";
         Copy(abPath, Application.streamingAssetsPath);
         string savePath = "";
@@ -23,7 +26,7 @@ public class BuildAPP
         {
             case BuildTarget.Android:
                 savePath = m_AndroidPath + m_AppName + "_" + EditorUserBuildSettings.activeBuildTarget +
-                    string.Format("_{0:yyyy_MM_dd_HH_mm}", DateTime.Now + ".apk");
+                    string.Format("_{0:yyyy_MM_dd_HH_mm}", DateTime.Now) +".apk";
                 break;
             case BuildTarget.StandaloneWindows:
                 savePath = m_WindowsPath + m_AppName + "_" + EditorUserBuildSettings.activeBuildTarget +
@@ -38,7 +41,8 @@ public class BuildAPP
                     string.Format("_{0:yyyy_MM_dd_HH_mm}/{1}.exe", DateTime.Now, m_AppName);
                 break;
         }
-        BuildPipeline.BuildPlayer(FindEnableEditorScenes(), savePath, BuildTarget.Android, BuildOptions.None);
+        BuildPipeline.BuildPlayer(FindEnableEditorScenes(), savePath, EditorUserBuildSettings.activeBuildTarget, BuildOptions.None);
+        DeleteDir(Application.streamingAssetsPath);
     }
 
     /// <summary>
@@ -99,11 +103,24 @@ public class BuildAPP
         try
         {
             DirectoryInfo dir = new DirectoryInfo(scrPath);
-            //FileSystemInfo[] fileInfo = dir.get
-        }
-        catch
-        {
+            FileSystemInfo[] fileInfo = dir.GetFileSystemInfos();
+            foreach (FileSystemInfo  info in fileInfo)
+            {
+                if(info is DirectoryInfo)
+                {
+                    DirectoryInfo directoryInfo = new DirectoryInfo(info.FullName);
+                    directoryInfo.Delete();
+                }
+                else
+                {
+                    File.Delete(info.FullName);
+                }
+            }
 
+        }
+        catch(Exception e)
+        {
+            Debug.LogError(e);
         }
     }
 }
