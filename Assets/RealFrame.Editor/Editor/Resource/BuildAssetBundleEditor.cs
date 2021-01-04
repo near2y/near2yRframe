@@ -6,8 +6,6 @@ using System.Collections.Generic;
 public class BuildAssetBundleEditor 
 {
 
-    private static readonly string ABCONFIGPATH = "Assets/Editor/Near2y/resourcesRelate/ABConfig.asset";
-    private static readonly string BUNDLETARGETPATH = "Assets/AssetBundles";
 
     //key是ab包名，value是路径，所有文件夹ab包dic
     private static Dictionary<string, string> allFileDir = new Dictionary<string, string>();
@@ -28,7 +26,7 @@ public class BuildAssetBundleEditor
         allFileAB.Clear();
         validFile.Clear();
         //文件夹类型
-        ABConfig aBConfig = AssetDatabase.LoadAssetAtPath<ABConfig>(ABCONFIGPATH);
+        ABConfig aBConfig = AssetDatabase.LoadAssetAtPath<ABConfig>(GameConfig.ABCONFIGASSETPATH);
         foreach(ABConfig.FileDirABName fileDir in aBConfig.allFileDirAB)
         {
             if (allFileDir.ContainsKey(fileDir.ABName))
@@ -145,7 +143,7 @@ public class BuildAssetBundleEditor
         WriteData(pathDic);
 
         //打包
-        string assetBundleDirectory = BUNDLETARGETPATH;
+        string assetBundleDirectory = GameConfig.ABPATH;
         if (!Directory.Exists(assetBundleDirectory))
         {
             Directory.CreateDirectory(assetBundleDirectory);
@@ -211,10 +209,10 @@ public class BuildAssetBundleEditor
     /// </summary>
     static void DeleteAB()
     {
-        if (!Directory.Exists(BUNDLETARGETPATH))
+        if (!Directory.Exists(GameConfig.ABPATH))
             return;
         string[] allBundlesName = AssetDatabase.GetAllAssetBundleNames();
-        DirectoryInfo directoryInfo = new DirectoryInfo(BUNDLETARGETPATH);
+        DirectoryInfo directoryInfo = new DirectoryInfo(GameConfig.ABPATH);
         FileInfo[] files = directoryInfo.GetFiles("*", SearchOption.AllDirectories);
         for(int i = 0; i < files.Length; i++)
         {

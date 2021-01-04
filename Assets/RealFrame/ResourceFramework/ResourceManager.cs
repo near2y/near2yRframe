@@ -35,6 +35,7 @@ public class ResourceManager :Singletor<ResourceManager>
     //最长连续卡着加载资源的时间，单位微秒
     private const long MAXLOADRESTIME = 200000;
 
+
     public void Init(MonoBehaviour mono)
     {
         for(int i = 0; i < (int)LoadResPriority.RES_NUM; i++)
@@ -443,6 +444,16 @@ public class ResourceManager :Singletor<ResourceManager>
     /// </summary>
     protected void WashOut()
     {
+        //当大于缓存个数，进行一般释放
+        while (m_NoRefrenceAssetMapList.Size >= GameConfig.MAXCACHECOUNT)
+        {
+            for(int i = 0; i < GameConfig.MAXCACHECOUNT / 2; i++)
+            {
+                ResourceItem item = m_NoRefrenceAssetMapList.Back();
+                DestroyResourceItem(item, true);
+            }
+        }
+
         //当当前内存使用大于百分之80的时候，我们来进行清除最早没用的资源
         //TODO
         //{
@@ -464,13 +475,18 @@ public class ResourceManager :Singletor<ResourceManager>
     {
         if (item == null || item.RefCount > 0)
             return;
-        if (!AssetDic.Remove(item.m_Crc))
-            return;
+
         if (!destroyCache)
         {
-            //m_NoRefrenceAssetMapList.InsertToHead(item);
+            m_NoRefrenceAssetMapList.InsertToHead(item);
             return;
         }
+
+        if (!AssetDic.Remove(item.m_Crc))
+            return;
+
+        m_NoRefrenceAssetMapList.Remove(item);
+
         AssetBundleManager.Instance.ReleaseAsset(item);
         ObjectManager.Instance.ClearPoolObject(item.m_Crc);
         if (item.m_Obj != null)

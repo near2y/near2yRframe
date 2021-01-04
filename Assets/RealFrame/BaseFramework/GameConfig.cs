@@ -4,9 +4,29 @@ using UnityEngine;
 
 public class GameConfig
 {
+    //-------------------------------Config --------------------------------------
+    /// <summary>
+    /// 最大缓存个数
+    /// </summary>
+    public const int MAXCACHECOUNT = 1000;
+
+
+
+
     //------------------------------- AB ---------------------------------------
+    /// <summary>
+    /// AB打包路径
+    /// </summary>
     public const string ABPATH = "Assets/AssetBundles/";
+    /// <summary>
+    /// AB打包配置表存放路径
+    /// </summary>
     public const string ABCONFIGPATH = "Assets/AssetBundles/assetbundleconfig";
+    /// <summary>
+    /// ABConfig.asset路径
+    /// 配置了所有需要打包文件的位置
+    /// </summary>
+    public static readonly string ABCONFIGASSETPATH = "Assets/RealFrame.Editor/Editor/Resource/ABConfig.asset";
 
 
 

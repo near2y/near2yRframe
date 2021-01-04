@@ -7,12 +7,8 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// 游戏开始测试
 /// </summary>
-public class GameStart : MonoBehaviour
+public class GameStart : MonoSingletor<GameStart>
 {
-    //public AudioClip clip;
-    //public AudioSource m_Audio;
-    //public List<GameObject> objList = new List<GameObject>();
-    //public ClassObjectPool<Enemy> m_EnemyClassPool = ObjectManager.Instance.GetOrCreateClassPool<Enemy>(1000);
 
     public RectTransform m_UIRoot = null;
     public RectTransform m_WindowRoot = null;
@@ -20,9 +16,9 @@ public class GameStart : MonoBehaviour
     public EventSystem m_UIEventSystem = null;
 
 
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         GameObject.DontDestroyOnLoad(gameObject);
         AssetBundleManager.Instance.LoadAssetBundleConfig();
         ResourceManager.Instance.Init(this);
@@ -45,7 +41,6 @@ public class GameStart : MonoBehaviour
 
         ObjectManager.Instance.PreLoadGameObject("Assets/GameData/Prefabs/Attack.prefab", 5);
         GameObject obj = ObjectManager.Instance.InstantiateObject("Assets/GameData/Prefabs/Attack.prefab", true);
-
         //GameObject obj = ObjectManager.Instance.InstantiateObject("Assets/GameData/Prefabs/Attack.prefab", true,false);
         //ObjectManager.Instance.ReleaseObject(obj);
         //obj = null;
@@ -67,24 +62,4 @@ public class GameStart : MonoBehaviour
         UIManager.Instance.Register<LoadingUI>(GameConfig.UIPATH_LOAD);
     }
 
-
-}
-
-
-
-public class Enemy 
-{
-    public long id = 0;
-    public string name = string.Empty;
-    public float hp = 0;
-    public float attack = 0;
-
-
-    public void Reset()
-    {
-        id = 0;
-        name = string.Empty;
-        hp = 0;
-        attack = 0;
-    }
 }
