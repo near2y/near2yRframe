@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class ResourceManager :Singletor<ResourceManager>
 {
-    public bool m_LoadFromAssetBundle = false;
+    public bool m_LoadFromAssetBundle = true;
 
 
     protected long m_Guid = 0;
@@ -174,7 +174,7 @@ public class ResourceManager :Singletor<ResourceManager>
         }
         Object obj = null;
 #if UNITY_EDITOR
-        if (!!m_LoadFromAssetBundle)
+        if (!m_LoadFromAssetBundle)
         {
             item = AssetBundleManager.Instance.FindResourceItem(crc);
             if (item != null && item.m_Obj != null)

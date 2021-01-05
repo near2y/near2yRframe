@@ -3,7 +3,7 @@ CRC: 3563584987
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7bcc6c42f24257f59a051c70ab7e9ce0
+    Hash: aa5a514cbf43979850ea13aa3bb30509
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5fdefe0d6c9c82b0b52093d9c661ea38
@@ -53,4 +53,4 @@ Assets:
 - Assets/GameData/Modle/benghuai/ID_362.bmp
 - Assets/GameData/Prefabs/Attack.prefab
 Dependencies:
-- D:/Unity/Projects/near2yRframe/Assets/AssetBundles/shader
+- F:/Near2y/near2yRframe/Assets/AssetBundles/shader
